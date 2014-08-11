@@ -18,9 +18,9 @@ namespace EmployeeManagement.Models
         public virtual Department Department { get; set; }
     }
 
-    public class EmployeeDBContext : DbContext
+  /*  public class EmployeeDBContext : DbContext
     {
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
-    }
+    }*/
 }

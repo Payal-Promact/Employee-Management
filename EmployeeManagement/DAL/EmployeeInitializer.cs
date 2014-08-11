@@ -11,14 +11,6 @@ namespace EmployeeManagement.DAL
     {
         protected override void Seed(EmployeeDBContext context)
         {
-            var employees = new List<Employee>
-            {
-                new Employee{EmpID=1201,EmpName="Hillary Johnson",EmpDOJ=DateTime.Parse("2002-07-02"),EmpContactNo=9875864253,EmpSalary=30000,},
-                new Employee{EmpID=1403,EmpName="Kiera Williams",EmpDOJ=DateTime.Parse("2004-08-03"),EmpContactNo=8745961653,EmpSalary=45000,},
-            };
-            employees.ForEach(e => context.Employees.Add(e));
-            context.SaveChanges();
-
             var departments = new List<Department>
             {
                 new Department{DeptID=101,DeptName="IT",},
@@ -26,8 +18,19 @@ namespace EmployeeManagement.DAL
                 new Department{DeptID=105,DeptName="Electrical",},
             };
 
-            departments.ForEach(d => context.Departments.Add(d));
+            departments.ForEach(e => context.Departments.Add(e));
             context.SaveChanges();
+
+            var employees = new List<Employee>
+            {
+                new Employee{EmpID=1201,EmpName="Hillary Johnson",EmpDOJ=DateTime.Parse("2002-07-02"),EmpContactNo=9875864253,EmpSalary=30000,DeptID=101,},
+                new Employee{EmpID=1403,EmpName="Kiera Williams",EmpDOJ=DateTime.Parse("2004-08-03"),EmpContactNo=8745961653,EmpSalary=45000,DeptID=105,},
+            };
+
+            employees.ForEach(e => context.Employees.Add(e));
+            context.SaveChanges();
+
+           
             
         }
     
